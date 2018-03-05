@@ -10,6 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.android.clubs_connect.controller.MessageAdapter;
+import com.example.android.clubs_connect.model.Author;
+import com.example.android.clubs_connect.model.Message;
+
+import java.util.ArrayList;
 
 /**
  * Created by ProfessorTaha on 3/3/2018.
@@ -34,8 +38,12 @@ public class ChatActivity extends AppCompatActivity {
         mChatMessageRecyclerView = findViewById(R.id.recyclerView);
         mSendButton = findViewById(R.id.sendButton);
         mMessageEditText = findViewById(R.id.chatEditText);
-        mMessageAdapter = new MessageAdapter();
-
+        mMessageAdapter = new MessageAdapter(ChatActivity.this);
+        //Just a quick demo with hard-coded strings
+        ArrayList<Message> chatHistoryDemo = new ArrayList<Message>();
+        chatHistoryDemo.add(new Message("wadup?", new Author("Dixie")));
+        chatHistoryDemo.add(new Message("never better", new Author("FlagrantFouler")));
+        mMessageAdapter.setMessages(chatHistoryDemo);
 //        if(savedInstanceState != null && savedInstanceState.containsKey(MESSAGES)){
 //            mMessages = (ArrayList<Message>) savedInstanceState.getSerializable(MESSAGES);
 //        } else {

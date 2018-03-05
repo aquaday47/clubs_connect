@@ -1,6 +1,7 @@
 package com.example.android.clubs_connect.model;
 
 import java.io.Serializable;
+import java.sql.Time;
 import java.sql.Timestamp;
 
 /**
@@ -14,6 +15,12 @@ public class Message implements Serializable {
     private Club mClub;
     private int mId;
     private MessageType mType;
+
+    public Message(String msg, Author user){
+        this.mTimeSent = new Timestamp(System.currentTimeMillis());
+        this.mText = msg;
+        this.mAuthor = user;
+    }
 
     public Timestamp getTimeSent() {
         return mTimeSent;

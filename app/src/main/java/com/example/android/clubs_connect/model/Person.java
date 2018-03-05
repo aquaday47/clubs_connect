@@ -7,6 +7,9 @@ package com.example.android.clubs_connect.model;
 class Person {
     private String mUserName;
 
+    public Person(String name){
+        this.mUserName = name;
+    }
     public String getUserName() {
         return mUserName;
     }

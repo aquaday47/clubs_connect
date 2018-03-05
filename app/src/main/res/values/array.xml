@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="chat_msg_display_pref_names_array">
+        <item>showAll</item>
+        <item>showTimeOnly</item>
+
+    </string-array>
+    <string-array name="chat_msg_display_pref_values_array">
+
+
+
+    </string-array>
+</resources>

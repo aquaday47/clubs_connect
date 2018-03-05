@@ -4,8 +4,10 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.android.clubs_connect.R;
 import com.example.android.clubs_connect.model.Message;
 import com.example.android.clubs_connect.view.MessageViewHolder;
 
@@ -26,17 +28,29 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageViewHolder> {
     @NonNull
     @Override
     public MessageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater li = System.
-        return new MessageViewHolder();
+        Context context = parent.getContext();
+        View view = LayoutInflater.from(context).inflate(R.layout.chat_message_row_self, parent
+                ,false);
+        return new MessageViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MessageViewHolder holder, int position) {
+        holder.bindMessage(mMessages.get(position));
 
     }
 
     @Override
     public int getItemCount() {
-        return return mMessages.size();
+        return mMessages.size();
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return R.layout.chat_message_row_self;
+    }
+
+    public void setMessages(ArrayList<Message> dummyChatHistory){
+        mMessages = dummyChatHistory;
     }
 }
